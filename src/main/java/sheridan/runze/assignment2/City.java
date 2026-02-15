@@ -14,12 +14,13 @@ public class City {
 
     private String name;
     private String country;
-    private Long population;
+    private long population;
 
     public City() {
+        // required by JPA
     }
 
-    public City(String name, String country, Long population) {
+    public City(String name, String country, long population) {
         this.name = name;
         this.country = country;
         this.population = population;
@@ -33,11 +34,23 @@ public class City {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getCountry() {
         return country;
     }
 
-    public Long getPopulation() {
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public long getPopulation() {
         return population;
+    }
+
+    public void setPopulation(long population) {
+        this.population = population;
     }
 }
