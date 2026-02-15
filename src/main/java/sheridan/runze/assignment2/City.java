@@ -2,32 +2,30 @@ package sheridan.runze.assignment2;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class City {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String cityId;
 
     private String name;
     private String country;
     private long population;
+    private double area;
 
-    public City() {
-        // required by JPA
+    @JsonProperty("isCapital")
+    private boolean capital;
+
+    public City() {}
+
+    public String getCityId() {
+        return cityId;
     }
 
-    public City(String name, String country, long population) {
-        this.name = name;
-        this.country = country;
-        this.population = population;
-    }
-
-    public Long getId() {
-        return id;
+    public void setCityId(String cityId) {
+        this.cityId = cityId;
     }
 
     public String getName() {
@@ -53,4 +51,21 @@ public class City {
     public void setPopulation(long population) {
         this.population = population;
     }
+
+    public boolean isCapital() {
+        return capital;
+    }
+
+    public void setCapital(boolean capital) {
+        this.capital = capital;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
 }
+
